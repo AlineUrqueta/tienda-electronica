@@ -70,4 +70,4 @@ python "Proyecto_Tienda_Electronica_RM(v4.0).py"
 
 ---
 
-_Proyecto académico · UNAB · Introducción a la Programación · 2° Semestre 2026._
+_Proyecto académico · UNAB · Introducción a la Programación · Segundo Trimestre · Tercera Entrega · 2026._
