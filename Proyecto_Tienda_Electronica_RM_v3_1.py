@@ -61,37 +61,17 @@ while opcion != "9":
         rut = input("Ingrese RUT del cliente: ")
         while rut.strip() == "":
             print("Error: El RUT no puede quedar vacío.")
-            rut = input("Ingrese RUT del cliente: ")
-
-        # --- Validación: evitar RUT duplicado ---
-        existeRut = False
-        for cliente in clientes:
-            if cliente[0] == rut:
-                existeRut = True
-
-        while existeRut:
-            print("Error: Ese RUT ya está registrado.")
-            rut = input("Ingrese RUT del cliente: ")
-            existeRut = False
-            for cliente in clientes:
-                if cliente[0] == rut:
-                    existeRut = True
+            rut = input("Ingrese RUT del cliente: ")    
 
         nombre = input("Ingrese nombre del cliente: ")
-        while nombre.strip() == "" or not nombre.replace(" ", "").isalpha():
-            if nombre.strip() == "":
-                print("Error: El nombre no puede quedar vacío.")
-            else:
-                print("Error: El nombre solo debe contener letras.")
+        while nombre.strip() == "":
+            print("Error: El nombre no puede quedar vacío.")
             nombre = input("Ingrese nombre del cliente: ")
 
         telefono = input("Ingrese teléfono: ")
-        while telefono.strip() == "" or not telefono.isdigit():
-            if telefono.strip() == "":
-                print("Error: El teléfono no puede quedar vacío.")
-            else:
-                print("Error: El teléfono solo debe contener números.")
-            telefono = input("Ingrese teléfono: ")
+        while telefono.strip() == "":
+            print("Error: El teléfono no puede quedar vacío.")
+            telefono = input("Ingrese teléfono: ")  
 
         correo = input("Ingrese correo electrónico: ")
 
@@ -127,20 +107,6 @@ while opcion != "9":
         while codigoProducto.strip() == "":
             print("Error: El código del producto no puede quedar vacío.")
             codigoProducto = input("Ingrese código del producto: ")
-
-        # --- Validación: evitar código de producto duplicado ---
-        existeCodigo = False
-        for producto in productos:
-            if producto[0] == codigoProducto:
-                existeCodigo = True
-
-        while existeCodigo:
-            print("Error: Ese código de producto ya existe.")
-            codigoProducto = input("Ingrese código del producto: ")
-            existeCodigo = False
-            for producto in productos:
-                if producto[0] == codigoProducto:
-                    existeCodigo = True
 
         nombreProducto = input("Ingrese nombre del producto: ")
         while nombreProducto.strip() == "":
@@ -191,36 +157,16 @@ while opcion != "9":
             print("Error: El RUT del proveedor no puede quedar vacío.")
             rutProveedor = input("Ingrese RUT del proveedor: ")
 
-        # --- Validación: evitar RUT de proveedor duplicado ---
-        existeRutProveedor = False
-        for proveedor in proveedores:
-            if proveedor[0] == rutProveedor:
-                existeRutProveedor = True
-
-        while existeRutProveedor:
-            print("Error: Ese RUT ya está registrado.")
-            rutProveedor = input("Ingrese RUT del proveedor: ")
-            existeRutProveedor = False
-            for proveedor in proveedores:
-                if proveedor[0] == rutProveedor:
-                    existeRutProveedor = True
-
         nombreProveedor = input("Ingrese nombre del proveedor: ")
-        while nombreProveedor.strip() == "" or not nombreProveedor.replace(" ", "").isalpha():
-            if nombreProveedor.strip() == "":
-                print("Error: El nombre del proveedor no puede quedar vacío.")
-            else:
-                print("Error: El nombre del proveedor solo debe contener letras.")
-            nombreProveedor = input("Ingrese nombre del proveedor: ")
+        while nombreProveedor.strip() == "":
+            print("Error: El nombre del proveedor no puede quedar vacío.")
+            nombreProveedor = input("Ingrese nombre del proveedor: ")   
 
         telefonoProveedor = input("Ingrese teléfono del proveedor: ")
-        while telefonoProveedor.strip() == "" or not telefonoProveedor.isdigit():
-            if telefonoProveedor.strip() == "":
-                print("Error: El teléfono del proveedor no puede quedar vacío.")
-            else:
-                print("Error: El teléfono del proveedor solo debe contener números.")
+        while telefonoProveedor.strip() == "":
+            print("Error: El teléfono del proveedor no puede quedar vacío.")
             telefonoProveedor = input("Ingrese teléfono del proveedor: ")
-
+            
 
         print()
         print("========================================")
@@ -248,26 +194,9 @@ while opcion != "9":
             print("Error: El RUT del empleado no puede quedar vacío.")
             rutEmpleado = input("Ingrese RUT del empleado: ")
 
-        # --- Validación: evitar RUT de empleado duplicado ---
-        existeRutEmpleado = False
-        for empleado in empleados:
-            if empleado[0] == rutEmpleado:
-                existeRutEmpleado = True
-
-        while existeRutEmpleado:
-            print("Error: Ese RUT ya está registrado.")
-            rutEmpleado = input("Ingrese RUT del empleado: ")
-            existeRutEmpleado = False
-            for empleado in empleados:
-                if empleado[0] == rutEmpleado:
-                    existeRutEmpleado = True
-
         nombreEmpleado = input("Ingrese nombre del empleado: ")
-        while nombreEmpleado.strip() == "" or not nombreEmpleado.replace(" ", "").isalpha():
-            if nombreEmpleado.strip() == "":
-                print("Error: El nombre del empleado no puede quedar vacío.")
-            else:
-                print("Error: El nombre del empleado solo debe contener letras.")
+        while nombreEmpleado.strip() == "":
+            print("Error: El nombre del empleado no puede quedar vacío.")
             nombreEmpleado = input("Ingrese nombre del empleado: ")
             
         cargo = input("Ingrese cargo del empleado: ")
@@ -301,57 +230,15 @@ while opcion != "9":
             print("Error: El número de boleta o factura no puede quedar vacío.")
             folio = input("Ingrese número de boleta o factura: ")
 
-        # --- Validación: evitar folio duplicado ---
-        existeFolio = False
-        for venta in ventas:
-            if venta[0] == folio:
-                existeFolio = True
-
-        while existeFolio:
-            print("Error: Ese número de boleta o factura ya fue utilizado.")
-            folio = input("Ingrese número de boleta o factura: ")
-            existeFolio = False
-            for venta in ventas:
-                if venta[0] == folio:
-                    existeFolio = True
-
         rutCliente = input("Ingrese RUT del cliente: ")
         while rutCliente.strip() == "":
             print("Error: El RUT del cliente no puede quedar vacío.")
             rutCliente = input("Ingrese RUT del cliente: ") 
 
-        # --- Validación: el cliente debe existir ---
-        clienteExiste = False
-        for cliente in clientes:
-            if cliente[0] == rutCliente:
-                clienteExiste = True
-
-        while not clienteExiste:
-            print("Error: El cliente no está registrado.")
-            rutCliente = input("Ingrese RUT del cliente: ")
-            clienteExiste = False
-            for cliente in clientes:
-                if cliente[0] == rutCliente:
-                    clienteExiste = True
-
         codigoProducto = input("Ingrese código del producto: ")
         while codigoProducto.strip() == "":
             print("Error: El código del producto no puede quedar vacío.")
             codigoProducto = input("Ingrese código del producto: ")
-
-        # --- Validación: el producto debe existir ---
-        productoExiste = False
-        for producto in productos:
-            if producto[0] == codigoProducto:
-                productoExiste = True
-
-        while not productoExiste:
-            print("Error: El producto no está registrado.")
-            codigoProducto = input("Ingrese código del producto: ")
-            productoExiste = False
-            for producto in productos:
-                if producto[0] == codigoProducto:
-                    productoExiste = True
 
         print()
         print("========================================")
@@ -379,20 +266,6 @@ while opcion != "9":
             print("Error: El número de orden no puede quedar vacío.")
             numeroOrden = input("Ingrese número de orden: ")
 
-        # --- Validación: evitar número de orden duplicado ---
-        existeOrden = False
-        for orden in ordenesCompra:
-            if orden[0] == numeroOrden:
-                existeOrden = True
-
-        while existeOrden:
-            print("Error: Ese número de orden ya fue utilizado.")
-            numeroOrden = input("Ingrese número de orden: ")
-            existeOrden = False
-            for orden in ordenesCompra:
-                if orden[0] == numeroOrden:
-                    existeOrden = True
-
         codigoProducto = input("Ingrese código del producto: ")
         while codigoProducto.strip() == "":
             print("Error: El código del producto no puede quedar vacío.")
@@ -402,20 +275,6 @@ while opcion != "9":
         while rutProveedor.strip() == "":
             print("Error: El RUT del proveedor no puede quedar vacío.")
             rutProveedor = input("Ingrese RUT del proveedor: ")
-
-        # --- Validación: el proveedor debe existir ---
-        proveedorExiste = False
-        for proveedor in proveedores:
-            if proveedor[0] == rutProveedor:
-                proveedorExiste = True
-
-        while not proveedorExiste:
-            print("Error: El proveedor no está registrado.")
-            rutProveedor = input("Ingrese RUT del proveedor: ")
-            proveedorExiste = False
-            for proveedor in proveedores:
-                if proveedor[0] == rutProveedor:
-                    proveedorExiste = True
 
 
         print()
@@ -455,11 +314,11 @@ while opcion != "9":
 
             contador = contador + 1
 
-            print("----------------------------------------")
-            print("Total de clientes registrados:", contador)
+           print("----------------------------------------")
+           print("Total de clientes registrados:", contador)
 
-            print("----------------------------------------")
-            input("Presione ENTER para volver al menú...")
+           print("----------------------------------------")
+           input("Presione ENTER para volver al menú...")
 
     elif opcion == "8":
 
@@ -489,12 +348,12 @@ while opcion != "9":
             contador = contador + 1
             totalPrecios = totalPrecios + producto[3]
 
-            print("----------------------------------------")
-            print("Total de productos registrados:", contador)
-            print("Valor total de los productos: $", totalPrecios) 
+           print("----------------------------------------")
+           print("Total de productos registrados:", contador)
+           print("Valor total de los productos: $", totalPrecios)
 
-            print("----------------------------------------")
-            input("Presione ENTER para volver al menú...")
+           print("----------------------------------------")
+           input("Presione ENTER para volver al menú...")
 
     elif opcion == "9":
 
