@@ -19,6 +19,7 @@ ordenesCompra = []
 
 opcion = ""
 
+# Bucle principal: se repite mostrando el menú hasta que el usuario elija salir (opción 9)
 while opcion != "9":
 
     print()
@@ -37,6 +38,7 @@ while opcion != "9":
     print("========================================")
     print()
 
+    # Validación de la opción del menú: solo se acepta un número entre 1 y 9
     while True:
       try:
         opcion = input("Seleccione una opción: ")
@@ -46,11 +48,12 @@ while opcion != "9":
         else:
             print("Error: Debe ingresar un número entre 1 y 9.")
 
-      except:
+      except ValueError:
         print("Error: Debe ingresar un número entre 1 y 9.")
 
     print()
 
+    # Opción 1: registrar un nuevo cliente, validando que ningún campo quede vacío
     if opcion == "1":
 
         print("========================================")
@@ -96,6 +99,7 @@ while opcion != "9":
         input("Presione ENTER para volver al menú...")
         print()
 
+    # Opción 2: registrar un nuevo producto, validando campos vacíos y que el precio sea numérico y positivo
     elif opcion == "2":
 
         print("========================================")
@@ -118,6 +122,7 @@ while opcion != "9":
             print("Error: La marca del producto no puede quedar vacía.")
             marca = input("Ingrese marca del producto: ")   
 
+        # El precio debe ser un número válido y mayor que cero
         while True:
          try:
             precio = float(input("Ingrese precio del producto: "))
@@ -127,7 +132,7 @@ while opcion != "9":
             else:
               break
 
-         except:
+         except ValueError:
            print("Error: Debe ingresar un número válido, no se permiten letras.")
 
         print()
@@ -145,6 +150,7 @@ while opcion != "9":
 
         print()
 
+    # Opción 3: registrar un nuevo proveedor, validando campos vacíos
     elif opcion == "3":
 
         print("========================================")
@@ -182,6 +188,7 @@ while opcion != "9":
         input("Presione ENTER para volver al menú...")
         print()
 
+    # Opción 4: registrar un nuevo empleado, validando campos vacíos
     elif opcion == "4":
 
         print("========================================")
@@ -218,6 +225,7 @@ while opcion != "9":
         input("Presione ENTER para volver al menú...")
         print()
 
+    # Opción 5: registrar una nueva venta, validando campos vacíos
     elif opcion == "5":
 
         print("========================================")
@@ -254,6 +262,7 @@ while opcion != "9":
         input("Presione ENTER para volver al menú...")
         print()
 
+    # Opción 6: registrar una nueva orden de compra, validando campos vacíos
     elif opcion == "6":
 
         print("========================================")
@@ -291,6 +300,7 @@ while opcion != "9":
         input("Presione ENTER para volver al menú...")
         print()
 
+    # Opción 7: consultar clientes registrados, usando un contador para totalizarlos
     elif opcion == "7":
 
          print("========================================")
@@ -301,9 +311,10 @@ while opcion != "9":
              print("No existen clientes registrados.")
 
          else:
-           
+
            contador = 0
 
+           # Se recorre la lista de clientes mostrando cada registro y contando cuántos hay
            for cliente in clientes:
 
             print("----------------------------------------")
@@ -320,6 +331,7 @@ while opcion != "9":
            print("----------------------------------------")
            input("Presione ENTER para volver al menú...")
 
+    # Opción 8: consultar productos registrados, usando contador y acumulador para totalizar cantidad y valor
     elif opcion == "8":
 
          print("========================================")
@@ -333,10 +345,11 @@ while opcion != "9":
              input("Presione ENTER para volver al menú...")
 
          else:
-           
+
            contador = 0
            totalPrecios = 0
 
+           # Se recorre la lista de productos, contando cuántos hay y acumulando el valor total
            for producto in productos:
 
             print("----------------------------------------")
@@ -355,6 +368,7 @@ while opcion != "9":
            print("----------------------------------------")
            input("Presione ENTER para volver al menú...")
 
+    # Opción 9: finalizar el programa
     elif opcion == "9":
 
         print("========================================")
