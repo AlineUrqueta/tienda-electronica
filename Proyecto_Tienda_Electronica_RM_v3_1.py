@@ -11,7 +11,9 @@
 # Reutilizables por los distintos registros, para evitar repetir la misma lógica
 # ==========================================
 
-# Pide un texto por teclado y no deja continuar hasta que no quede vacío
+# Función reutilizable para solicitar un texto y validar que no esté vacío.
+# Utiliza strip() para eliminar espacios al inicio y al final antes de comprobar.
+# El ciclo while repite el ingreso mientras el texto esté vacío.
 def pedir_texto_no_vacio(mensaje, mensaje_error):
     texto = input(mensaje)
     while texto.strip() == "":
@@ -19,8 +21,9 @@ def pedir_texto_no_vacio(mensaje, mensaje_error):
         texto = input(mensaje)
     return texto
 
-
-# Pide un correo electrónico y valida que no esté vacío y que contenga el símbolo @
+# Función reutilizable para validar el ingreso de un correo electrónico.
+# strip() permite comprobar que el campo no contenga solamente espacios.
+# El operador "not in" verifica que el correo contenga el carácter @.
 def pedir_correo(mensaje):
     correo = input(mensaje)
     while correo.strip() == "" or "@" not in correo:
@@ -31,8 +34,11 @@ def pedir_correo(mensaje):
         correo = input(mensaje)
     return correo
 
-
-# Pide el precio de un producto y valida que sea un número mayor que cero
+# Función reutilizable para solicitar y validar el precio de un producto.
+# float() convierte el dato ingresado a un número decimal.
+# try-except ValueError evita que el programa se detenga si se ingresa
+# un valor que no puede convertirse a número.
+# El ciclo while permite repetir el ingreso hasta obtener un precio válido.
 def pedir_precio(mensaje):
     while True:
         try:
@@ -69,8 +75,9 @@ def mostrar_menu():
     print("========================================")
     print()
 
-
-# Pide la opción del menú y valida que sea un número entre 1 y 9
+# Función que solicita la opción del menú y valida que corresponda a un número entero entre 1 y 9.
+# int() convierte la entrada de texto a entero y ValueError controla
+# el ingreso de datos que no pueden convertirse a número.
 def pedir_opcion():
     while True:
         try:
@@ -90,7 +97,8 @@ def pedir_opcion():
 # Cada una pide los datos de un módulo, los muestra y los agrega a su lista
 # ==========================================
 
-# Pide los datos de un cliente y lo agrega a la lista de clientes
+# Registra un nuevo cliente utilizando las funciones de validación.
+# Los datos validados se almacenan como una lista dentro de la lista clientes.
 def registrar_cliente(clientes):
     print("========================================")
     print("      REGISTRO DE CLIENTES")
@@ -111,13 +119,15 @@ def registrar_cliente(clientes):
     print("Correo:", correo)
     print("========================================")
 
+    # append() agrega el nuevo registro a la lista de clientes.
     clientes.append([rut, nombre, telefono, correo])
 
     input("Presione ENTER para volver al menú...")
     print()
 
 
-# Pide los datos de un producto y lo agrega a la lista de productos
+# Solicita y valida los datos del producto mediante funciones auxiliares.
+# Luego almacena el registro como una lista dentro de la lista productos.
 def registrar_producto(productos):
     print("========================================")
     print("      REGISTRO DE PRODUCTOS")
@@ -140,12 +150,14 @@ def registrar_producto(productos):
     print("========================================")
     input("Presione ENTER para volver al menú...")
 
+    # append() agrega el nuevo producto a la lista productos.
     productos.append([codigoProducto, nombreProducto, marca, precio])
 
     print()
 
 
-# Pide los datos de un proveedor y lo agrega a la lista de proveedores
+# Solicita y valida los datos del proveedor mediante una función auxiliar.
+# Luego almacena el registro como una lista dentro de la lista proveedores.
 def registrar_proveedor(proveedores):
     print("========================================")
     print("     REGISTRO DE PROVEEDORES")
@@ -164,14 +176,16 @@ def registrar_proveedor(proveedores):
     print("Nombre   :", nombreProveedor)
     print("Teléfono :", telefonoProveedor)
     print("========================================")
-
+    
+    # append() agrega el nuevo registro a la lista de proveedores.
     proveedores.append([rutProveedor, nombreProveedor, telefonoProveedor])
 
     input("Presione ENTER para volver al menú...")
     print()
 
 
-# Pide los datos de un empleado y lo agrega a la lista de empleados
+# Solicita y valida los datos del empleado mediante una función auxiliar.
+# Luego almacena el registro como una lista dentro de la lista empleados.
 def registrar_empleado(empleados):
     print("========================================")
     print("      REGISTRO DE EMPLEADOS")
@@ -191,13 +205,15 @@ def registrar_empleado(empleados):
     print("Cargo  :", cargo)
     print("========================================")
 
+    # append() agrega el nuevo registro a la lista de empleados.
     empleados.append([rutEmpleado, nombreEmpleado, cargo])
 
     input("Presione ENTER para volver al menú...")
     print()
 
 
-# Pide los datos de una venta y la agrega a la lista de ventas
+# Solicita y valida los datos de la venta mediante una función auxiliar.
+# Luego almacena el registro como una lista dentro de la lista ventas.
 def registrar_venta(ventas):
     print("========================================")
     print("       REGISTRO DE VENTAS")
@@ -216,14 +232,16 @@ def registrar_venta(ventas):
     print("RUT Cliente    :", rutCliente)
     print("Producto       :", codigoProducto)
     print("========================================")
-
+    
+    # append() agrega el nuevo registro a la lista de ventas.
     ventas.append([folio, rutCliente, codigoProducto])
 
     input("Presione ENTER para volver al menú...")
     print()
 
 
-# Pide los datos de una orden de compra y la agrega a la lista de órdenes de compra
+# Solicita y valida los datos de la orden de compra mediante una función auxiliar.
+# Luego almacena el registro como una lista dentro de la lista ordenesCompra.
 def registrar_orden_compra(ordenesCompra):
     print("========================================")
     print("   REGISTRO DE ORDEN DE COMPRA")
@@ -243,6 +261,7 @@ def registrar_orden_compra(ordenesCompra):
     print("Proveedor  :", rutProveedor)
     print("========================================")
 
+    # append() agrega el nuevo registro a la lista de órdenes de compra.
     ordenesCompra.append([numeroOrden, codigoProducto, rutProveedor])
 
     input("Presione ENTER para volver al menú...")
@@ -254,7 +273,8 @@ def registrar_orden_compra(ordenesCompra):
 # Recorren la lista con un ciclo for, usando contador (y acumulador cuando corresponde)
 # ==========================================
 
-# Muestra todos los clientes registrados y el total de clientes
+# Recorre la lista de clientes con for, muestra los datos almacenados
+# mediante índices y utiliza un contador para determinar la cantidad de registros.
 def consultar_clientes(clientes):
     print("========================================")
     print("      CONSULTA DE CLIENTES")
@@ -263,9 +283,11 @@ def consultar_clientes(clientes):
     if len(clientes) == 0:
         print("No existen clientes registrados.")
         return
-
+        
+    # El contador comienza en 0 y aumentará por cada cliente recorrido.
     contador = 0
 
+    # for recorre cada elemento de la lista clientes.
     for cliente in clientes:
         print("----------------------------------------")
         print("RUT      :", cliente[0])
@@ -273,6 +295,7 @@ def consultar_clientes(clientes):
         print("Teléfono :", cliente[2])
         print("Correo   :", cliente[3])
 
+        # Aumenta el contador en 1 cada vez que se encuentra un cliente.
         contador = contador + 1
 
     print("----------------------------------------")
@@ -282,12 +305,14 @@ def consultar_clientes(clientes):
     input("Presione ENTER para volver al menú...")
 
 
-# Muestra todos los productos registrados, el total de productos y el valor total
+# Recorre la lista de productos con for, muestra sus datos mediante índices,
+# utiliza un contador y acumula los precios de los productos registrados.
 def consultar_productos(productos):
     print("========================================")
     print("      CONSULTA DE PRODUCTOS")
     print("========================================")
 
+    # len() permite verificar si existen elementos almacenados en la lista.
     if len(productos) == 0:
         print("No existen productos registrados.")
         print()
@@ -295,17 +320,24 @@ def consultar_productos(productos):
         input("Presione ENTER para volver al menú...")
         return
 
+    # contador permite contar los productos recorridos.
+    # totalPrecios comienza en 0 y acumula el precio de cada producto.
     contador = 0
     totalPrecios = 0
 
+    # for recorre cada producto almacenado en la lista productos.
     for producto in productos:
         print("----------------------------------------")
+        # Los índices permiten acceder a los datos almacenados en cada producto.
         print("Código :", producto[0])
         print("Nombre :", producto[1])
         print("Marca  :", producto[2])
         print("Precio : $", producto[3])
 
+        # Incrementa el contador por cada producto recorrido.
         contador = contador + 1
+        
+        # Acumula el precio del producto para obtener el valor total.
         totalPrecios = totalPrecios + producto[3]
 
     print("----------------------------------------")
@@ -321,8 +353,11 @@ def consultar_productos(productos):
 # Contiene las listas de registros y coordina el menú, llamando a las funciones anteriores
 # ==========================================
 
-# Crea las listas de registros y controla el menú, llamando a las demás funciones
+# Función principal que crea las listas del sistema y controla el menú.
+# Desde aquí se llaman las funciones correspondientes a cada opción seleccionada.
 def main():
+   
+    # Se crean las listas que almacenarán los registros durante la ejecución del programa.
     clientes = []
     productos = []
     proveedores = []
@@ -330,14 +365,23 @@ def main():
     ventas = []
     ordenesCompra = []
 
+    # Variable utilizada para almacenar la opción seleccionada en el menú.
     opcion = ""
 
+    # El ciclo mantiene el menú activo hasta que el usuario seleccione la opción 9.
     while opcion != "9":
 
+        # Llama a la función que muestra las opciones disponibles del menú.
         mostrar_menu()
+        
+        # Llama a la función que solicita y valida la opción ingresada.
         opcion = pedir_opcion()
         print()
 
+
+        # Según la opción seleccionada, se llama a la función correspondiente.
+        # Las opciones 7 y 8 llaman a las funciones de consulta y les entregan las listas correspondientes.
+        # La opción 9 muestra el mensaje de salida y permite finalizar el ciclo while.
         if opcion == "1":
             registrar_cliente(clientes)
 
@@ -369,5 +413,5 @@ def main():
             print("========================================")
             print()
 
-
+# Llama a la función principal para iniciar la ejecución del sistema.
 main()
