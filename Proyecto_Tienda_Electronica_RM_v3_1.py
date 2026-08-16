@@ -1,8 +1,7 @@
 # ==========================================
 # Proyecto: Tienda Electrónica RM
 # Asignatura: Introducción a la Programación
-# Grupo 4
-# Cuarta Entrega - Programación Modular (Funciones)
+# Grupo 4 - Cuarta Entrega
 # ==========================================
 
 
