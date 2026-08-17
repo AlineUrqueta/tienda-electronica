@@ -56,7 +56,7 @@ def pedir_precio(mensaje):
 # FUNCIONES DEL MENÚ PRINCIPAL
 # ==========================================
 
-# Muestra las opciones del menú principal
+# Función que muestra en pantalla las opciones disponibles del menú principal.
 def mostrar_menu():
     print()
     print("========================================")
@@ -81,9 +81,10 @@ def pedir_opcion():
     while True:
         try:
             opcion = input("Seleccione una opción: ")
-
-            if int(opcion) >= 1 and int(opcion) <= 9:
+            numero = int(opcion)
+            if numero >= 1 and numero <= 9:
                 return opcion
+            
             else:
                 print("Error: Debe ingresar un número entre 1 y 9.")
 
@@ -118,7 +119,7 @@ def registrar_cliente(clientes):
     print("Correo:", correo)
     print("========================================")
 
-    # append() agrega el nuevo registro a la lista de clientes.
+    # append() agrega una lista con los datos del cliente a la lista clientes.
     clientes.append([rut, nombre, telefono, correo])
 
     input("Presione ENTER para volver al menú...")
@@ -149,7 +150,7 @@ def registrar_producto(productos):
     print("========================================")
     input("Presione ENTER para volver al menú...")
 
-    # append() agrega el nuevo producto a la lista productos.
+    # append() agrega una lista con los datos del producto a la lista productos.
     productos.append([codigoProducto, nombreProducto, marca, precio])
 
     print()
@@ -176,7 +177,7 @@ def registrar_proveedor(proveedores):
     print("Teléfono :", telefonoProveedor)
     print("========================================")
     
-    # append() agrega el nuevo registro a la lista de proveedores.
+    # append() agrega una lista con los datos del proveedor a la lista proveedores.
     proveedores.append([rutProveedor, nombreProveedor, telefonoProveedor])
 
     input("Presione ENTER para volver al menú...")
@@ -204,7 +205,7 @@ def registrar_empleado(empleados):
     print("Cargo  :", cargo)
     print("========================================")
 
-    # append() agrega el nuevo registro a la lista de empleados.
+    # append() agrega una lista con los datos del empleado a la lista empleados.
     empleados.append([rutEmpleado, nombreEmpleado, cargo])
 
     input("Presione ENTER para volver al menú...")
@@ -232,7 +233,7 @@ def registrar_venta(ventas):
     print("Producto       :", codigoProducto)
     print("========================================")
     
-    # append() agrega el nuevo registro a la lista de ventas.
+    # append() agrega una lista con los datos de la venta a la lista ventas.
     ventas.append([folio, rutCliente, codigoProducto])
 
     input("Presione ENTER para volver al menú...")
@@ -260,7 +261,7 @@ def registrar_orden_compra(ordenesCompra):
     print("Proveedor  :", rutProveedor)
     print("========================================")
 
-    # append() agrega el nuevo registro a la lista de órdenes de compra.
+    # append() agrega una lista con los datos de la orden de compra a la lista ordenesCompra.
     ordenesCompra.append([numeroOrden, codigoProducto, rutProveedor])
 
     input("Presione ENTER para volver al menú...")
@@ -356,7 +357,7 @@ def consultar_productos(productos):
 # Desde aquí se llaman las funciones correspondientes a cada opción seleccionada.
 def main():
    
-    # Se crean las listas que almacenarán los registros durante la ejecución del programa.
+    # Se crean listas para almacenar los registros de cada módulo del sistema.
     clientes = []
     productos = []
     proveedores = []
