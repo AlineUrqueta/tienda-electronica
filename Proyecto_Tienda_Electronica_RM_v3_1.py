@@ -282,6 +282,9 @@ def consultar_clientes(clientes):
 
     if len(clientes) == 0:
         print("No existen clientes registrados.")
+        print()
+        print("----------------------------------------")
+        input("Presione ENTER para volver al menú...")
         return
         
     # El contador comienza en 0 y aumentará por cada cliente recorrido.
@@ -380,8 +383,6 @@ def main():
 
 
         # Según la opción seleccionada, se llama a la función correspondiente.
-        # Las opciones 7 y 8 llaman a las funciones de consulta y les entregan las listas correspondientes.
-        # La opción 9 muestra el mensaje de salida y permite finalizar el ciclo while.
         if opcion == "1":
             registrar_cliente(clientes)
 
