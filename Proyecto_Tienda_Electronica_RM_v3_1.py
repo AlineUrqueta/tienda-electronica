@@ -2,6 +2,12 @@
 # Proyecto: Tienda Electrónica RM
 # Asignatura: Introducción a la Programación
 # Grupo 4 - Cuarta Entrega
+#
+# Mejora agregada en esta entrega (sugerida por el profesor en la
+# retroalimentación de la entrega anterior): se extienden las consultas
+# hacia ventas y órdenes de compra, siguiendo la misma lógica ya usada
+# en consultar_clientes() y consultar_productos(). No se modificó la
+# lógica existente de los demás módulos.
 # ==========================================
 
 
@@ -70,11 +76,13 @@ def mostrar_menu():
     print("6. Registrar Orden de Compra")
     print("7. Consultar Clientes")
     print("8. Consultar Productos")
-    print("9. Salir")
+    print("9. Consultar Ventas")
+    print("10. Consultar Órdenes de Compra")
+    print("11. Salir")
     print("========================================")
     print()
 
-# Función que solicita la opción del menú y valida que corresponda a un número entero entre 1 y 9.
+# Función que solicita la opción del menú y valida que corresponda a un número entero entre 1 y 11.
 # int() convierte la entrada de texto a entero y ValueError controla
 # el ingreso de datos que no pueden convertirse a número.
 def pedir_opcion():
@@ -82,14 +90,14 @@ def pedir_opcion():
         try:
             opcion = input("Seleccione una opción: ")
             numero = int(opcion)
-            if numero >= 1 and numero <= 9:
+            if numero >= 1 and numero <= 11:
                 return opcion
             
             else:
-                print("Error: Debe ingresar un número entre 1 y 9.")
+                print("Error: Debe ingresar un número entre 1 y 11.")
 
         except ValueError:
-            print("Error: Debe ingresar un número entre 1 y 9.")
+            print("Error: Debe ingresar un número entre 1 y 11.")
 
 
 # ==========================================
@@ -351,6 +359,76 @@ def consultar_productos(productos):
     input("Presione ENTER para volver al menú...")
 
 
+# Recorre la lista de ventas con for, muestra los datos almacenados
+# mediante índices y utiliza un contador para determinar la cantidad de registros.
+# Sigue la misma lógica que consultar_clientes() y consultar_productos().
+def consultar_ventas(ventas):
+    print("========================================")
+    print("      CONSULTA DE VENTAS")
+    print("========================================")
+
+    if len(ventas) == 0:
+        print("No existen ventas registradas.")
+        print()
+        print("----------------------------------------")
+        input("Presione ENTER para volver al menú...")
+        return
+
+    # El contador comienza en 0 y aumentará por cada venta recorrida.
+    contador = 0
+
+    # for recorre cada elemento de la lista ventas.
+    for venta in ventas:
+        print("----------------------------------------")
+        print("Boleta/Factura :", venta[0])
+        print("RUT Cliente    :", venta[1])
+        print("Producto       :", venta[2])
+
+        # Aumenta el contador en 1 cada vez que se encuentra una venta.
+        contador = contador + 1
+
+    print("----------------------------------------")
+    print("Total de ventas registradas:", contador)
+
+    print("----------------------------------------")
+    input("Presione ENTER para volver al menú...")
+
+
+# Recorre la lista de órdenes de compra con for, muestra los datos almacenados
+# mediante índices y utiliza un contador para determinar la cantidad de registros.
+# Sigue la misma lógica que consultar_clientes() y consultar_productos().
+def consultar_ordenes_compra(ordenesCompra):
+    print("========================================")
+    print("   CONSULTA DE ÓRDENES DE COMPRA")
+    print("========================================")
+
+    if len(ordenesCompra) == 0:
+        print("No existen órdenes de compra registradas.")
+        print()
+        print("----------------------------------------")
+        input("Presione ENTER para volver al menú...")
+        return
+
+    # El contador comienza en 0 y aumentará por cada orden recorrida.
+    contador = 0
+
+    # for recorre cada elemento de la lista ordenesCompra.
+    for orden in ordenesCompra:
+        print("----------------------------------------")
+        print("Orden      :", orden[0])
+        print("Producto   :", orden[1])
+        print("Proveedor  :", orden[2])
+
+        # Aumenta el contador en 1 cada vez que se encuentra una orden.
+        contador = contador + 1
+
+    print("----------------------------------------")
+    print("Total de órdenes de compra registradas:", contador)
+
+    print("----------------------------------------")
+    input("Presione ENTER para volver al menú...")
+
+
 # ==========================================
 # PROGRAMA PRINCIPAL
 # Contiene las listas de registros y coordina el menú, llamando a las funciones anteriores
@@ -371,8 +449,8 @@ def main():
     # Variable utilizada para almacenar la opción seleccionada en el menú.
     opcion = ""
 
-    # El ciclo mantiene el menú activo hasta que el usuario seleccione la opción 9.
-    while opcion != "9":
+    # El ciclo mantiene el menú activo hasta que el usuario seleccione la opción 11.
+    while opcion != "11":
 
         # Llama a la función que muestra las opciones disponibles del menú.
         mostrar_menu()
@@ -408,6 +486,12 @@ def main():
             consultar_productos(productos)
 
         elif opcion == "9":
+            consultar_ventas(ventas)
+
+        elif opcion == "10":
+            consultar_ordenes_compra(ordenesCompra)
+
+        elif opcion == "11":
             print("========================================")
             print(" Gracias por utilizar el sistema")
             print("   Tienda Electrónica RM")
